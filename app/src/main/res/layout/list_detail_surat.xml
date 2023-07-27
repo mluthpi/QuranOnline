@@ -3,31 +3,91 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#999999"
     app:cardCornerRadius="10dp">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="1"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        app:cardElevation="4dp">
-
-        <TextView
+        <RelativeLayout
+            android:id="@+id/rv_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="NAMA SURAT"/>
+            android:background="#BEBDB8">
+
+            <LinearLayout
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/ic_rubl_hizb"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_ayat_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="2"
+                    android:textColor="@color/black"
+                    android:textSize="9sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
 
 
-    </androidx.cardview.widget.CardView>
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rv_top"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/tv_detail_hijaiyah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+                tools:text="Hijaiyah"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textIsSelectable="true"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tv_latin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_detail_hijaiyah"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                android:padding="8dp"
+                android:justificationMode="inter_word"
+                android:text="latin"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:id="@+id/tv_terjemahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_latin"
+                android:layout_margin="5dp"
+                android:padding="8dp"
+                android:justificationMode="inter_word"
+                android:text="terjemahan"
+                android:textSize="12sp"
+                android:textStyle="italic" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

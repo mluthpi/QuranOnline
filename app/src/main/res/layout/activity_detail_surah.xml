@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".presentation.DetailSurahActivity">
+    tools:context=".presentation.detail.DetailSurahActivity">
 
     <ProgressBar
         android:id="@+id/progressbar"
@@ -45,11 +45,11 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_surah"
+        android:id="@+id/rv_detail_surah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="4dp"
         android:layout_marginTop="10dp"
-        tools:listitem="@layout/list_item_surah"/>
+        tools:listitem="@layout/list_detail_surat"/>
 
 </LinearLayout>

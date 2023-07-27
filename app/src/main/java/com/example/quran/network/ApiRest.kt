@@ -14,8 +14,8 @@ interface ApiRest {
 
     @GET("/99c279bb173a6e28359c/surat/{nomor}")
     fun getDetailSurah(
-        @Path("nomor") nomor: String
-    ): Call<ArrayList<DetailSurahResponse>>
+        @Path("nomor") nomor: Int
+    ): Call<List<DetailSurahResponse>>
 
 //    @GET("place/nearbysearch/json")
 //    fun getDataResult(

@@ -1,5 +1,6 @@
 package com.example.quran
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.data.SurahResponseItem
 import com.example.quran.databinding.ActivityMainBinding
+import com.example.quran.presentation.detail.DetailSurahActivity
 import com.example.quran.presentation.SurahAdapter
 import com.example.quran.presentation.surah.SurahViewModel
 
@@ -16,7 +18,11 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
 
-    private val surahAdapter = SurahAdapter{}
+    private val surahAdapter = SurahAdapter {
+        val intent = Intent(this@MainActivity, DetailSurahActivity::class.java)
+        intent.putExtra("nomor", it.nomor)
+        startActivity(intent)
+    }
 
     private lateinit var surahViewModel: SurahViewModel
 
@@ -25,9 +31,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
         surahViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()
         )[SurahViewModel::class.java]
+
 
         surahViewModel.getSurah()
 
