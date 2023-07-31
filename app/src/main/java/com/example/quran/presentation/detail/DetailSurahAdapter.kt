@@ -3,7 +3,6 @@ package com.example.quran.presentation.detail
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quran.data.DetailSurahResponse
 import com.example.quran.data.DetailSurahResponseItem
 import com.example.quran.databinding.ListDetailSuratBinding
 
