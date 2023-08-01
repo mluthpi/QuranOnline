@@ -1,10 +1,8 @@
 package com.example.quran.presentation.detail
 
-import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.quran.data.DetailSurahResponse
 import com.example.quran.data.DetailSurahResponseItem
 import com.example.quran.network.ApiConfig
 import retrofit2.Call
@@ -16,20 +14,25 @@ class DetailSurahViewModel : ViewModel() {
     private val _listDetailSurah = MutableLiveData<List<DetailSurahResponseItem>>()
     val listDetailSurah : LiveData<List<DetailSurahResponseItem>> = _listDetailSurah
 
-    fun getDetailSurah(nomor : Int) {
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    fun getDetailSurah(nomor : String) {
+        _isLoading.value = true
         val client = ApiConfig().getApiRest().getDetailSurah(nomor = nomor)
-        client.enqueue(object : Callback<List<DetailSurahResponse>>{
+        client.enqueue(object : Callback<List<DetailSurahResponseItem>>{
             override fun onResponse(
-                call: Call<DetailSurahResponse>,
-                response: Response<DetailSurahResponseItem>
+                call: Call<List<DetailSurahResponseItem>>,
+                response: Response<List<DetailSurahResponseItem>>
             ) {
+                _isLoading.value = false
                 if (response.isSuccessful) {
                     _listDetailSurah.value = response.body()
                 }
             }
 
-            override fun onFailure(call: Call<DetailSurahResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+            override fun onFailure(call: Call<List<DetailSurahResponseItem>>, t: Throwable) {
+                _isLoading.value = false
             }
 
         })

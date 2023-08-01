@@ -2,12 +2,6 @@ package com.example.quran.data
 
 import com.google.gson.annotations.SerializedName
 
-data class DetailSurahResponse(
-
-	@field:SerializedName("DetailSurahResponse")
-	val detailSurahResponse: List<DetailSurahResponseItem?>? = null
-)
-
 data class DetailSurahResponseItem(
 
 	@field:SerializedName("ar")

@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private val surahAdapter = SurahAdapter {
         val intent = Intent(this@MainActivity, DetailSurahActivity::class.java)
-        intent.putExtra("nomor", it.nomor)
+        intent.putExtra(DetailSurahActivity.KEY_NUMBER, it.nomor)
         startActivity(intent)
     }
 
