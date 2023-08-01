@@ -7,10 +7,10 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiRest {
-    @GET("/99c279bb173a6e28359c/data")
+    @GET("data")
     fun getListSurah(): Call<List<SurahResponseItem>>
 
-    @GET("/99c279bb173a6e28359c/surat/{nomor}")
+    @GET("surat/{nomor}")
     fun getDetailSurah(
         @Path("nomor") nomor: String
     ): Call<List<DetailSurahResponseItem>>
