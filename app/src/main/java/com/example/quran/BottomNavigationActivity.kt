@@ -1,35 +1,59 @@
 package com.example.quran
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.quran.databinding.ActivityBottomNavigationBinding
+import com.example.quran.ui.home.HomeFragment
+import com.example.quran.ui.tafsir.TafsirFragment
 
 class BottomNavigationActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityBottomNavigationBinding
+    private val mOnNavigationOnItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            val fragment : Fragment?
+            when (item.itemId) {
+                R.id.navigation_surat -> {
+                    fragment = HomeFragment()
+                    loadFragment(fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_dashboard -> {
+                    fragment = TafsirFragment()
+                    loadFragment(fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+            }
+            false
+        }
 
-        binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
+    private var _binding: ActivityBottomNavigationBinding? = null
+    private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+
+        _binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        binding.navView.setOnNavigationItemSelectedListener(mOnNavigationOnItemSelectedListener)
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_bottom_navigation)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_surat, R.id.navigation_dashboard, R.id.navigation_notifications
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        if (savedInstanceState == null) {
+            loadFragment(HomeFragment())
+        }
+    }
+
+    private fun loadFragment(fragment : Fragment) {
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.main_navigation, fragment)
+            .commit()
     }
 }
