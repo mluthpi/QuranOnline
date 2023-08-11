@@ -11,13 +11,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.quran.databinding.ActivityBottomNavigationBinding
 import com.example.quran.ui.home.HomeFragment
+import com.example.quran.ui.notifications.NotificationsFragment
 import com.example.quran.ui.tafsir.TafsirFragment
 
 class BottomNavigationActivity : AppCompatActivity() {
 
-    private val mOnNavigationOnItemSelectedListener =
+    private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
-            val fragment : Fragment?
+            val fragment: Fragment?
             when (item.itemId) {
                 R.id.navigation_surat -> {
                     fragment = HomeFragment()
@@ -29,25 +30,25 @@ class BottomNavigationActivity : AppCompatActivity() {
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
-
+                R.id.navigation_notifications -> {
+                    fragment = NotificationsFragment()
+                    loadFragment(fragment)
+                    return@OnNavigationItemSelectedListener true
+                }
             }
             false
         }
 
-    private var _binding: ActivityBottomNavigationBinding? = null
-    private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-
-        _binding = ActivityBottomNavigationBinding.inflate(layoutInflater)
+    private val binding by lazy { ActivityBottomNavigationBinding.inflate(layoutInflater) }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        binding.navView.setOnNavigationItemSelectedListener(mOnNavigationOnItemSelectedListener)
 
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
         }
+
+        binding.btnNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
     private fun loadFragment(fragment : Fragment) {
