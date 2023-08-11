@@ -1,4 +1,4 @@
-package com.example.quran.ui.home
+package com.example.quran.presentation.detail.ui.tafsir
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -7,32 +7,28 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.data.SurahResponseItem
-import com.example.quran.databinding.FragmentHomeBinding
-import com.example.quran.presentation.SurahAdapter
-import com.example.quran.presentation.detail.DetailSurahActivity
-import com.example.quran.presentation.surah.SurahViewModel
+import com.example.quran.databinding.FragmentTafsirBinding
+import com.example.quran.presentation.detail.ui.detail.surat.DetailSurahActivity
+import com.example.quran.presentation.detail.ui.surat.SurahAdapter
+import com.example.quran.presentation.detail.ui.surat.SurahViewModel
 
-class HomeFragment : Fragment() {
+class TafsirFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentTafsirBinding? = null
     private val binding get() = _binding!!
-
 
     private lateinit var surahViewModel: SurahViewModel
 
-    private val surahAdapter = SurahAdapter {
-        val intent = Intent(this@HomeFragment.requireContext(), DetailSurahActivity::class.java)
+    private val tafsirAdapter = SurahAdapter {
+        val intent = Intent(this@TafsirFragment.requireContext(), DetailSurahActivity::class.java)
         intent.putExtra(DetailSurahActivity.KEY_NUMBER, it.nomor)
         startActivity(intent)
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,10 +36,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentTafsirBinding.inflate(inflater, container, false)
         return binding.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -54,22 +48,21 @@ class HomeFragment : Fragment() {
 
         surahViewModel.getSurah()
 
-        surahViewModel.listSurah.observe(this, { listSurah ->
-            Log.d(TAG,  "${listSurah.size}")
-            showSurah(listSurah)
+        surahViewModel.listSurah.observe(this, { listTafsir ->
+            Log.d(TAG, "${listTafsir.size}")
+            showTafsir(listTafsir)
         })
-
 
     }
 
-    private fun showSurah(listSurah: List<SurahResponseItem>) {
-        surahAdapter.addItems(listSurah)
+    private fun showTafsir(listSurah: List<SurahResponseItem>) {
+        tafsirAdapter.addItems(listSurah)
         binding.rvSurah.apply {
             layoutManager = LinearLayoutManager(
-                this@HomeFragment.requireContext(),
+                this@TafsirFragment.requireContext(),
                 RecyclerView.VERTICAL, false
             )
-            adapter = surahAdapter
+            adapter = tafsirAdapter
         }
     }
 
