@@ -48,9 +48,8 @@ class TafsirFragment : Fragment() {
 
         surahViewModel.getSurah()
 
-        surahViewModel.listSurah.observe(this, { listTafsir ->
-            Log.d(TAG, "${listTafsir.size}")
-            showTafsir(listTafsir)
+        surahViewModel.listSurah.observe(this, { listSurah ->
+            showTafsir(listSurah)
         })
 
     }
