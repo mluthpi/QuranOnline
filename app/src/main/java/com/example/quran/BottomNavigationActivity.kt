@@ -1,18 +1,13 @@
 package com.example.quran
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.quran.databinding.ActivityBottomNavigationBinding
-import com.example.quran.ui.home.HomeFragment
-import com.example.quran.ui.notifications.NotificationsFragment
-import com.example.quran.ui.tafsir.TafsirFragment
+import com.example.quran.presentation.detail.ui.surat.SuratFragment
+import com.example.quran.presentation.detail.ui.notifications.NotificationsFragment
+import com.example.quran.presentation.detail.ui.tafsir.TafsirFragment
 
 class BottomNavigationActivity : AppCompatActivity() {
 
@@ -21,7 +16,7 @@ class BottomNavigationActivity : AppCompatActivity() {
             val fragment: Fragment?
             when (item.itemId) {
                 R.id.navigation_surat -> {
-                    fragment = HomeFragment()
+                    fragment = SuratFragment()
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
@@ -45,7 +40,7 @@ class BottomNavigationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState == null) {
-            loadFragment(HomeFragment())
+            loadFragment(SuratFragment())
         }
 
         binding.btnNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
