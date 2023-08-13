@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.quran.databinding.ActivityBottomNavigationBinding
 import com.example.quran.presentation.detail.ui.surat.SuratFragment
-import com.example.quran.presentation.detail.ui.notifications.NotificationsFragment
+import com.example.quran.presentation.detail.ui.favorite.FavoriteFragment
 import com.example.quran.presentation.detail.ui.tafsir.TafsirFragment
 
-class BottomNavigationActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -25,8 +25,8 @@ class BottomNavigationActivity : AppCompatActivity() {
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.navigation_notifications -> {
-                    fragment = NotificationsFragment()
+                R.id.navigation_favorite -> {
+                    fragment = FavoriteFragment()
                     loadFragment(fragment)
                     return@OnNavigationItemSelectedListener true
                 }

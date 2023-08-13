@@ -12,12 +12,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.data.SurahResponseItem
-import com.example.quran.databinding.FragmentHomeBinding
+import com.example.quran.databinding.FragmentSuratBinding
 import com.example.quran.presentation.detail.ui.detail.surat.DetailSurahActivity
 
 class SuratFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentSuratBinding? = null
     private val binding get() = _binding!!
 
 
@@ -37,7 +37,7 @@ class SuratFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentSuratBinding.inflate(inflater, container, false)
         return binding.root
 
 
