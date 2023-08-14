@@ -5,9 +5,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.quran.databinding.ActivityBottomNavigationBinding
-import com.example.quran.presentation.detail.ui.surat.SuratFragment
-import com.example.quran.presentation.detail.ui.favorite.FavoriteFragment
-import com.example.quran.presentation.detail.ui.tafsir.TafsirFragment
+import com.example.quran.presentation.surat.SuratFragment
+import com.example.quran.presentation.favorite.FavoriteFragment
+import com.example.quran.presentation.tafsir.TafsirFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.quran.presentation.detail.ui.surat
+package com.example.quran.presentation.surat
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

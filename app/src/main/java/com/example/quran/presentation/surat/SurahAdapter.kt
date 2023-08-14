@@ -1,4 +1,4 @@
-package com.example.quran.presentation.detail.ui.surat
+package com.example.quran.presentation.surat
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
