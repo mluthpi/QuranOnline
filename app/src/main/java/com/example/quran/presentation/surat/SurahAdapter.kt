@@ -3,23 +3,23 @@ package com.example.quran.presentation.surat
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quran.data.SurahResponse
+import com.example.quran.data.SurahResponseItem
 import com.example.quran.databinding.ListItemSurahBinding
 
-class SurahAdapter(val onItemClick: (surahItem: SurahResponse)-> Unit): RecyclerView.Adapter<SurahAdapter.SurahHolder>() {
+class SurahAdapter(val onItemClick: (surahItem: SurahResponseItem)-> Unit): RecyclerView.Adapter<SurahAdapter.SurahHolder>() {
 
 
 
-    private val surahList = mutableListOf<SurahResponse>()
+    private val surahList = mutableListOf<SurahResponseItem>()
 
-    fun addItems(surahList: List<SurahResponse>) {
+    fun addItems(surahList: List<SurahResponseItem>) {
         this.surahList.clear()
         this.surahList.addAll(surahList)
         notifyDataSetChanged()
     }
 
     class SurahHolder(private val binding: ListItemSurahBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(surah : SurahResponse) {
+        fun bind(surah : SurahResponseItem) {
             with(binding) {
                 tvSurah.text = surah.nama
                 tvArti.text = surah.arti

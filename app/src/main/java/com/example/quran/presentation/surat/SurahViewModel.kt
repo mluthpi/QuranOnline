@@ -3,7 +3,7 @@ package com.example.quran.presentation.surat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.quran.data.SurahResponse
+import com.example.quran.data.SurahResponseItem
 import com.example.quran.network.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,15 +16,15 @@ class SurahViewModel : ViewModel() {
         private const val TAG = "TEST DEBUG"
     }
 
-    private val _listSurah = MutableLiveData<List<SurahResponse>>()
-    val listSurah: LiveData<List<SurahResponse>> = _listSurah
+    private val _listSurah = MutableLiveData<List<SurahResponseItem>>()
+    val listSurah: LiveData<List<SurahResponseItem>> = _listSurah
 
     fun getSurah() {
         val client = ApiConfig().getApiRest().getListSurah()
-        client.enqueue(object : Callback<List<SurahResponse>> {
+        client.enqueue(object : Callback<List<SurahResponseItem>> {
             override fun onResponse(
-                call: Call<List<SurahResponse>>,
-                response: Response<List<SurahResponse>>
+                call: Call<List<SurahResponseItem>>,
+                response: Response<List<SurahResponseItem>>
             ) {
                 if (response.isSuccessful) {
                     _listSurah.value = response.body()
@@ -33,7 +33,7 @@ class SurahViewModel : ViewModel() {
                 }
             }
 
-            override fun onFailure(call: Call<List<SurahResponse>>, t: Throwable) {
+            override fun onFailure(call: Call<List<SurahResponseItem>>, t: Throwable) {
 
             }
         })
