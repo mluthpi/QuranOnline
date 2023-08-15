@@ -20,18 +20,4 @@ class ApiConfig {
             .build()
         return retrofit.create(ApiRest::class.java)
     }
-
-    fun getApiTafsir() : ApiRest {
-        val loggingInterceptor = HttpLoggingInterceptor()
-            .setLevel(HttpLoggingInterceptor.Level.BODY)
-        val client: OkHttpClient = OkHttpClient.Builder()
-            .addInterceptor(loggingInterceptor)
-            .build()
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://equran.id/api/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
-            .build()
-        return retrofit.create(ApiRest::class.java)
-    }
 }
