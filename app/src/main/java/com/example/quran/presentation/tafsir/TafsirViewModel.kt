@@ -2,7 +2,6 @@ package com.example.quran.presentation.tafsir
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.quran.data.SurahResponse
 import com.example.quran.data.TafsirResponse
 import com.example.quran.network.ApiConfig
 import retrofit2.Call

@@ -12,10 +12,6 @@ import retrofit2.Response
 
 class SurahViewModel : ViewModel() {
 
-    companion object {
-        private const val TAG = "TEST DEBUG"
-    }
-
     private val _listSurah = MutableLiveData<List<SurahResponseItem>>()
     val listSurah: LiveData<List<SurahResponseItem>> = _listSurah
 

@@ -1,9 +1,7 @@
 package com.example.quran.presentation.surat
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.data.SurahResponseItem
 import com.example.quran.databinding.FragmentSuratBinding
-import com.example.quran.presentation.surat.DetailSurahActivity
 
 class SuratFragment : Fragment() {
 

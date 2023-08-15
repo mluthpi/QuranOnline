@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.data.AyatItem
 import com.example.quran.databinding.ListDetailSuratBinding
 
-class DetailSurahAdapter() : RecyclerView.Adapter<DetailSurahAdapter.DetailSurahHolder>() {
+class DetailSurahAdapter : RecyclerView.Adapter<DetailSurahAdapter.DetailSurahHolder>() {
 
     private val detailSurahList = mutableListOf<AyatItem>()
 

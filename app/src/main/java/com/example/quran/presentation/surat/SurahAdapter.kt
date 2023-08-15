@@ -8,8 +8,6 @@ import com.example.quran.databinding.ListItemSurahBinding
 
 class SurahAdapter(val onItemClick: (surahItem: SurahResponseItem)-> Unit): RecyclerView.Adapter<SurahAdapter.SurahHolder>() {
 
-
-
     private val surahList = mutableListOf<SurahResponseItem>()
 
     fun addItems(surahList: List<SurahResponseItem>) {
