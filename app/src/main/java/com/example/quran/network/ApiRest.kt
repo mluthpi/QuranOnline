@@ -18,5 +18,5 @@ interface ApiRest {
     ): Call<DetailSurahResponse>
 
     @GET("tafsir/{nomor}")
-    fun getTafsir(@Path("nomor")nomor : Int) : Call<TafsirResponse>
+    fun getTafsir(@Path("nomor") nomor: Int): Call<TafsirResponse>
 }
