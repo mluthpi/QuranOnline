@@ -1,4 +1,4 @@
-package com.example.quran.presentation.detail.ui.tafsir
+package com.example.quran.presentation.tafsir
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quran.data.SurahResponseItem
+import com.example.quran.data.SurahResponse
 import com.example.quran.databinding.FragmentTafsirBinding
-import com.example.quran.presentation.detail.ui.detail.surat.DetailSurahActivity
-import com.example.quran.presentation.detail.ui.surat.SurahAdapter
-import com.example.quran.presentation.detail.ui.surat.SurahViewModel
+import com.example.quran.presentation.surat.DetailSurahActivity
+import com.example.quran.presentation.surat.SurahAdapter
+import com.example.quran.presentation.surat.SurahViewModel
 
 class TafsirFragment : Fragment() {
 
@@ -54,7 +54,7 @@ class TafsirFragment : Fragment() {
 
     }
 
-    private fun showTafsir(listSurah: List<SurahResponseItem>) {
+    private fun showTafsir(listSurah: List<SurahResponse>) {
         tafsirAdapter.addItems(listSurah)
         binding.rvSurah.apply {
             layoutManager = LinearLayoutManager(

@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context=".presentation.detail.ui.detail.surat.DetailSurahActivity">
+    tools:context=".presentation.surat.DetailSurahActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

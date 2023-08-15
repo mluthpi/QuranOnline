@@ -1,4 +1,4 @@
-package com.example.quran.presentation.detail.ui.detail.surat
+package com.example.quran.presentation.surat
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

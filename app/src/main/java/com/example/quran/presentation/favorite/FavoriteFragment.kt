@@ -1,4 +1,4 @@
-package com.example.quran.presentation.detail.ui.favorite
+package com.example.quran.presentation.favorite
 
 import android.os.Bundle
 import android.view.LayoutInflater

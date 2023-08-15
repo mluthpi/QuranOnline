@@ -1,4 +1,4 @@
-package com.example.quran.presentation.detail.ui.surat
+package com.example.quran.presentation.surat
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -11,9 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quran.data.SurahResponseItem
+import com.example.quran.data.SurahResponse
 import com.example.quran.databinding.FragmentSuratBinding
-import com.example.quran.presentation.detail.ui.detail.surat.DetailSurahActivity
+import com.example.quran.presentation.surat.DetailSurahActivity
 
 class SuratFragment : Fragment() {
 
@@ -52,14 +52,13 @@ class SuratFragment : Fragment() {
         surahViewModel.getSurah()
 
         surahViewModel.listSurah.observe(this, { listSurah ->
-            Log.d(TAG,  "${listSurah.size}")
             showSurah(listSurah)
         })
 
 
     }
 
-    private fun showSurah(listSurah: List<SurahResponseItem>) {
+    private fun showSurah(listSurah: List<SurahResponse>) {
         surahAdapter.addItems(listSurah)
         binding.rvSurah.apply {
             layoutManager = LinearLayoutManager(
