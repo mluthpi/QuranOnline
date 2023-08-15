@@ -12,7 +12,7 @@ data class DetailSurahResponse(
 	val ayat: List<AyatItem>? = null,
 
 	@field:SerializedName("surat_selanjutnya")
-	val suratSelanjutnya: TafsirResponse.SuratSelanjutnya? = null,
+	val suratSelanjutnya: SuratSelanjutnya? = null,
 
 	@field:SerializedName("nama_latin")
 	val namaLatin: String? = null,
