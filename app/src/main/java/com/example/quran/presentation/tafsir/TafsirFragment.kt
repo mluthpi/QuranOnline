@@ -25,8 +25,8 @@ class TafsirFragment : Fragment() {
     private lateinit var surahViewModel: SurahViewModel
 
     private val tafsirAdapter = SurahAdapter {
-        val intent = Intent(this@TafsirFragment.requireContext(), DetailSurahActivity::class.java)
-        intent.putExtra(DetailSurahActivity.KEY_NUMBER, it.nomor)
+        val intent = Intent(this@TafsirFragment.requireContext(), TafsirDetailActivity::class.java)
+        intent.putExtra(TafsirDetailActivity.KEY_NUMBER, it.nomor)
         startActivity(intent)
     }
 
