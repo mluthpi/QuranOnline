@@ -6,7 +6,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quran.data.DetailSurahResponseItem
+import com.example.quran.data.AyatItem
 import com.example.quran.databinding.ActivityDetailSurahBinding
 
 class DetailSurahActivity : AppCompatActivity() {
@@ -39,7 +39,7 @@ class DetailSurahActivity : AppCompatActivity() {
         }
     }
 
-    private fun showSurahDetail(listDetailSurah: List<DetailSurahResponseItem>) {
+    private fun showSurahDetail(listDetailSurah: List<AyatItem>) {
         val detailAdapter = DetailSurahAdapter()
         detailAdapter.addItems(listDetailSurah)
         binding.rvDetailSurah.apply {
