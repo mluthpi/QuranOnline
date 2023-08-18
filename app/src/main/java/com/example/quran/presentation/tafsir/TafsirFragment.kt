@@ -49,6 +49,9 @@ class TafsirFragment : Fragment() {
             showTafsir(listSurah)
         })
 
+        surahViewModel.isLoading.observe(this) { isLoading ->
+            setupLoading(isLoading)
+        }
     }
 
     private fun showTafsir(listSurah: List<SurahResponseItem>) {
@@ -59,6 +62,16 @@ class TafsirFragment : Fragment() {
                 RecyclerView.VERTICAL, false
             )
             adapter = tafsirAdapter
+        }
+    }
+
+    private fun setupLoading(isLoading: Boolean) {
+        with(binding) {
+            if (isLoading) {
+                progressbar.visibility = View.VISIBLE
+            } else {
+                progressbar.visibility = View.GONE
+            }
         }
     }
 
