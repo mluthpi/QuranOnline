@@ -3,12 +3,15 @@ package com.example.quran.presentation.tafsir
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quran.data.TafsirResponse
 import com.example.quran.databinding.ActivityTafsirDetailBinding
 
 class TafsirDetailActivity : AppCompatActivity() {
 
     private lateinit var vm: TafsirViewModel
+
+    private val tafsirAdapter = TafsirAdapter { }
 
     private val binding by lazy { ActivityTafsirDetailBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +53,20 @@ class TafsirDetailActivity : AppCompatActivity() {
                 tvLatinName.text = data.namaLatin
                 tvArti.text = data.arti
                 tvDescription.text = data.deskripsi
+
+                setupTafisrList(data.tafsir)
+            }
+        }
+    }
+
+    private fun setupTafisrList(tafsirList: List<TafsirResponse.Tafsir>?) {
+        with(binding) {
+            tafsirList?.let {
+                tafsirAdapter.addItems(tafsirList)
+                rvTafisrList.apply {
+                    layoutManager = LinearLayoutManager(this@TafsirDetailActivity)
+                    adapter = tafsirAdapter
+                }
             }
         }
     }
