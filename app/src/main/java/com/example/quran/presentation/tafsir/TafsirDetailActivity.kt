@@ -2,6 +2,7 @@ package com.example.quran.presentation.tafsir
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quran.data.TafsirResponse
@@ -43,6 +44,10 @@ class TafsirDetailActivity : AppCompatActivity() {
         vm.tafsirDetail.observe(this) { tafsirResponse ->
             setupView(data = tafsirResponse)
         }
+
+        vm.isLoading.observe(this) { isLoading ->
+            setupLoading(isLoading)
+        }
     }
 
     private fun setupView(data: TafsirResponse?) {
@@ -70,6 +75,14 @@ class TafsirDetailActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun setupLoading(isLoading: Boolean) {
+        with(binding) {
+            if (isLoading) progressbar.visibility = View.VISIBLE
+            else progressbar.visibility = View.GONE
+        }
+    }
+
 
     companion object {
         const val KEY_NUMBER = "KEY_NUMBER"

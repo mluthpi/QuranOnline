@@ -60,8 +60,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:textAlignment="center"
-                    android:maxLines="3"
-                    android:ellipsize="end"
                     android:textSize="14sp"
                     tools:text="Surat Al Faatihah (Pembukaan) yang diturunkan di Mekah dan terdiri dari 7 ayat adalah surat yang pertama-tama diturunkan dengan lengkap ..." />
 
@@ -87,5 +85,12 @@
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/progressbar" />
 
 </RelativeLayout>
