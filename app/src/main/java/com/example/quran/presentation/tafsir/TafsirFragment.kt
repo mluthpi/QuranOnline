@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.quran.data.SurahResponse
+import com.example.quran.data.SurahResponseItem
 import com.example.quran.databinding.FragmentTafsirBinding
 import com.example.quran.presentation.surat.DetailSurahActivity
 import com.example.quran.presentation.surat.SurahAdapter
@@ -54,9 +54,9 @@ class TafsirFragment : Fragment() {
 
     }
 
-    private fun showTafsir(listSurah: List<SurahResponse>) {
+    private fun showTafsir(listSurah: List<SurahResponseItem>) {
         tafsirAdapter.addItems(listSurah)
-        binding.rvSurah.apply {
+        binding.rvTafsir.apply {
             layoutManager = LinearLayoutManager(
                 this@TafsirFragment.requireContext(),
                 RecyclerView.VERTICAL, false
