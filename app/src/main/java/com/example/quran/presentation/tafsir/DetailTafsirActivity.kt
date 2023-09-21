@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.quran.data.TafsirResponse
 import com.example.quran.databinding.ActivityTafsirDetailBinding
 
-class TafsirDetailActivity : AppCompatActivity() {
+class DetailTafsirActivity : AppCompatActivity() {
 
     private lateinit var vm: TafsirViewModel
 
@@ -69,7 +69,7 @@ class TafsirDetailActivity : AppCompatActivity() {
             tafsirList?.let {
                 tafsirAdapter.addItems(tafsirList)
                 rvTafisrList.apply {
-                    layoutManager = LinearLayoutManager(this@TafsirDetailActivity)
+                    layoutManager = LinearLayoutManager(this@DetailTafsirActivity)
                     adapter = tafsirAdapter
                 }
             }
