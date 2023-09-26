@@ -12,7 +12,7 @@ class FavoriteAdapter(val onItemClick : (surahItem: QuranEntity)-> Unit) : Recyc
 
     fun addItems(surahList: List<QuranEntity>) {
         this.surahList.clear()
-        this.surahList.add(surahList)
+        this.surahList.addAll(surahList)
         notifyDataSetChanged()
     }
 
