@@ -22,8 +22,8 @@ class TafsirFragment : Fragment() {
     private lateinit var surahViewModel: SurahViewModel
 
     private val tafsirAdapter = SurahAdapter {
-        val intent = Intent(this@TafsirFragment.requireContext(), TafsirDetailActivity::class.java)
-        intent.putExtra(TafsirDetailActivity.KEY_NUMBER, it.nomor)
+        val intent = Intent(this@TafsirFragment.requireContext(), DetailTafsirActivity::class.java)
+        intent.putExtra(DetailTafsirActivity.KEY_NUMBER, it.nomor)
         startActivity(intent)
     }
 
@@ -49,6 +49,9 @@ class TafsirFragment : Fragment() {
             showTafsir(listSurah)
         })
 
+        surahViewModel.isLoading.observe(this) { isLoading ->
+            setupLoading(isLoading)
+        }
     }
 
     private fun showTafsir(listSurah: List<SurahResponseItem>) {
@@ -59,6 +62,16 @@ class TafsirFragment : Fragment() {
                 RecyclerView.VERTICAL, false
             )
             adapter = tafsirAdapter
+        }
+    }
+
+    private fun setupLoading(isLoading: Boolean) {
+        with(binding) {
+            if (isLoading) {
+                progressbar.visibility = View.VISIBLE
+            } else {
+                progressbar.visibility = View.GONE
+            }
         }
     }
 
