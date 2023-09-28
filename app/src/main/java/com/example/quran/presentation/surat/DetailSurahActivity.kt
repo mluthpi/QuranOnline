@@ -3,28 +3,27 @@ package com.example.quran.presentation.surat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.quran.ViewModelFactory
 import com.example.quran.data.AyatItem
 import com.example.quran.databinding.ActivityDetailSurahBinding
 
 class DetailSurahActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: DetailSurahViewModel
+    private val viewModel: DetailSurahViewModel by viewModels {
+        ViewModelFactory(application)
+    }
 
     private val binding by lazy { ActivityDetailSurahBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val number = intent.getStringExtra(KEY_NUMBER).orEmpty()
-
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.NewInstanceFactory()
-        )[DetailSurahViewModel::class.java]
-        observeDetailSurah(number)
+        val number = intent.getIntExtra(KEY_NUMBER, 0)
+        observeDetailSurah(number.toString())
     }
 
     private fun observeDetailSurah(number: String) = with(binding) {

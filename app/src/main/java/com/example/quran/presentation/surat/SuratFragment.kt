@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.data.SurahResponseItem
 import com.example.quran.databinding.FragmentSuratBinding
 
-class SuratFragment : Fragment() {
+class  SuratFragment : Fragment() {
 
     private var _binding: FragmentSuratBinding? = null
     private val binding get() = _binding!!
@@ -23,6 +23,7 @@ class SuratFragment : Fragment() {
     private val surahAdapter = SurahAdapter {
         val intent = Intent(this@SuratFragment.requireContext(), DetailSurahActivity::class.java)
         intent.putExtra(DetailSurahActivity.KEY_NUMBER, it.nomor)
+        println("DATA NOMER: ${it.nomor}")
         startActivity(intent)
     }
 
