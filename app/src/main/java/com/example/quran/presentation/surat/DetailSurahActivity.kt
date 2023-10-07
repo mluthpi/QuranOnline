@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quran.ViewModelFactory
 import com.example.quran.data.AyatItem
 import com.example.quran.databinding.ActivityDetailSurahBinding
+import com.example.quran.model.QuranEntity
 
 class DetailSurahActivity : AppCompatActivity() {
 
@@ -48,6 +49,16 @@ class DetailSurahActivity : AppCompatActivity() {
                 false
             )
             adapter = detailAdapter
+        }
+
+        binding.fbFavorite.setOnClickListener {
+            viewModel.insertToDB(
+                quran = QuranEntity(
+                    nomor = 1,
+                    nama = "nama",
+                    namaLatin = "nama latin"
+                )
+            )
         }
     }
 
